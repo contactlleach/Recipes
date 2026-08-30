@@ -180,9 +180,7 @@
       gap: 20px;
     }
 
-    .card-link {
-      text-decoration: none;
-      color: inherit;
+    .card-item {
       background: var(--surface);
       border-radius: var(--radius);
       border: 1px solid var(--border);
@@ -193,7 +191,7 @@
       box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
     }
 
-    .card-link:hover {
+    .card-item:hover {
       transform: translateY(-4px);
       box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
       border-color: var(--primary);
@@ -205,6 +203,8 @@
       flex-direction: column;
       flex-grow: 1;
       gap: 8px;
+      text-decoration: none;
+      color: inherit;
     }
 
     .card-meta-top {
@@ -257,10 +257,28 @@
       color: #475569;
     }
 
-    .mini-badge.kids {
+    /* Kids Action Toggle Button */
+    .kids-toggle-btn {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      padding: 4px 8px;
+      border-radius: 6px;
+      font-size: 11px;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      transition: all 0.15s;
+      font-family: inherit;
+      color: var(--text-muted);
+    }
+
+    .kids-toggle-btn.liked {
       background: #fef3c7;
-      color: #92400e;
       border-color: #fde68a;
+      color: #92400e;
+      font-weight: 700;
     }
 
     .card-footer {
@@ -372,7 +390,7 @@
   <div class="controls">
     <div class="search-row">
       <div class="search-box">
-        <input type="text" id="searchInput" placeholder="Search by name, ingredient, ID, or 'kids' (e.g., BK-01, lamb, chicken)...">
+        <input type="text" id="searchInput" placeholder="Search by name, ingredient, ID, or 'kids' (e.g., lamb, BK-01, quick)...">
       </div>
       <div class="view-toggle">
         <button class="toggle-btn active" id="btnGrid" onclick="switchView('grid')">▦ Tiles</button>
@@ -390,187 +408,10 @@
     </div>
   </div>
 
-  <!-- TILED VIEW -->
-  <div class="grid-view" id="recipeGrid">
+  <!-- TILED VIEW CONTAINER -->
+  <div class="grid-view" id="recipeGrid"></div>
 
-    <!-- BK-01 -->
-    <a class="card-link" href="card_BK-01_whipped_berry_bowl.html" data-category="breakfast" data-kids="true" data-title="whipped berry and nut butter protein bowl bk-01 breakfast yoghurt chia kids">
-      <div class="card-body">
-        <div class="card-meta-top">
-          <span class="card-id">BK-01</span>
-          <span class="card-time">⏱ 5 mins</span>
-        </div>
-        <h2 class="card-title">Whipped Berry & Nut Butter Protein Bowl[cite: 1, 2]</h2>
-        <div class="card-badges">
-          <span class="mini-badge kids">🧒 Kids Liked</span>
-          <span class="mini-badge">No-Cook[cite: 1, 2]</span>
-          <span class="mini-badge">Glucose Friendly</span>
-        </div>
-      </div>
-      <div class="card-footer">
-        <span>370 kcal</span>
-        <strong>32g Protein</strong>
-      </div>
-    </a>
-
-    <!-- HF-60 -->
-    <a class="card-link" href="card1_speedy_harissa_lamb.html" data-category="meat" data-kids="false" data-title="speedy middle eastern harissa lamb with bulgur hf-60 peppers">
-      <div class="card-body">
-        <div class="card-meta-top">
-          <span class="card-id">HF-60</span>
-          <span class="card-time">⏱ 25 mins</span>
-        </div>
-        <h2 class="card-title">Speedy Middle Eastern Harissa Lamb with Bulgur[cite: 1, 2]</h2>
-        <div class="card-badges">
-          <span class="mini-badge">Bulk Cook</span>
-          <span class="mini-badge">High Protein</span>
-        </div>
-      </div>
-      <div class="card-footer">
-        <span>565 kcal</span>
-        <strong>38g Protein</strong>
-      </div>
-    </a>
-
-    <!-- HF-59 -->
-    <a class="card-link" href="card4_greek_oregano_chicken_pasta.html" data-category="meat" data-kids="true" data-title="quick greek style oregano chicken pasta salad hf-59 cucumber kids">
-      <div class="card-body">
-        <div class="card-meta-top">
-          <span class="card-id">HF-59</span>
-          <span class="card-time">⏱ 25 mins</span>
-        </div>
-        <h2 class="card-title">Quick Greek Style Oregano Chicken Pasta Salad[cite: 1, 2]</h2>
-        <div class="card-badges">
-          <span class="mini-badge kids">🧒 Kids Liked</span>
-          <span class="mini-badge">Cold Lunch</span>
-          <span class="mini-badge">High Protein</span>
-        </div>
-      </div>
-      <div class="card-footer">
-        <span>510 kcal</span>
-        <strong>42g Protein</strong>
-      </div>
-    </a>
-
-    <!-- HF-56 -->
-    <a class="card-link" href="card2_cauliflower_dal.html" data-category="veggie" data-kids="false" data-title="north indian roasted cauliflower and lentil dal hf-56 coconut">
-      <div class="card-body">
-        <div class="card-meta-top">
-          <span class="card-id">HF-56</span>
-          <span class="card-time">⏱ 35 mins</span>
-        </div>
-        <h2 class="card-title">North Indian Roasted Cauliflower & Lentil Dal[cite: 1, 2]</h2>
-        <div class="card-badges">
-          <span class="mini-badge">Freeze Safe</span>
-          <span class="mini-badge">High Fibre</span>
-        </div>
-      </div>
-      <div class="card-footer">
-        <span>410 kcal</span>
-        <strong>18g Protein</strong>
-      </div>
-    </a>
-
-    <!-- HF-52 -->
-    <a class="card-link" href="card_HF-52_beetroot_goats_cheese_couscous.html" data-category="veggie" data-kids="false" data-title="beetroot sweet potato and goats cheese couscous bowl hf-52 rocket">
-      <div class="card-body">
-        <div class="card-meta-top">
-          <span class="card-id">HF-52</span>
-          <span class="card-time">⏱ 25 mins</span>
-        </div>
-        <h2 class="card-title">Beetroot, Sweet Potato & Goat's Cheese Bowl[cite: 1, 2]</h2>
-        <div class="card-badges">
-          <span class="mini-badge">Quick Prep</span>
-          <span class="mini-badge">Source Fibre</span>
-        </div>
-      </div>
-      <div class="card-footer">
-        <span>480 kcal</span>
-        <strong>16g Protein</strong>
-      </div>
-    </a>
-
-    <!-- EP-01 -->
-    <a class="card-link" href="card3_garlic_butter_chicken_quinoa.html" data-category="meat" data-kids="true" data-title="garlic butter chicken with quinoa and steamed greens ep-01 broccoli kale kids">
-      <div class="card-body">
-        <div class="card-meta-top">
-          <span class="card-id">EP-01</span>
-          <span class="card-time">⏱ 35 mins</span>
-        </div>
-        <h2 class="card-title">Garlic Butter Chicken with Quinoa & Steamed Greens[cite: 1, 2]</h2>
-        <div class="card-badges">
-          <span class="mini-badge kids">🧒 Kids Liked</span>
-          <span class="mini-badge">High Protein</span>
-          <span class="mini-badge">Gluten Free</span>
-        </div>
-      </div>
-      <div class="card-footer">
-        <span>540 kcal</span>
-        <strong>47g Protein</strong>
-      </div>
-    </a>
-
-    <!-- EP-02 -->
-    <a class="card-link" href="card4_cheeky_quinoa_mushroom_tofu.html" data-category="veggie" data-kids="false" data-title="cheeky quinoa with mushroom and crispy tofu ep-02 vegan">
-      <div class="card-body">
-        <div class="card-meta-top">
-          <span class="card-id">EP-02</span>
-          <span class="card-time">⏱ 35 mins</span>
-        </div>
-        <h2 class="card-title">Cheeky Quinoa with Mushroom & Crispy Tofu[cite: 1, 2]</h2>
-        <div class="card-badges">
-          <span class="mini-badge">Vegan</span>
-          <span class="mini-badge">Gluten Free</span>
-        </div>
-      </div>
-      <div class="card-footer">
-        <span>460 kcal</span>
-        <strong>21g Protein</strong>
-      </div>
-    </a>
-
-    <!-- CB-01 -->
-    <a class="card-link" href="card_CB-01_black_bean_skillet.html" data-category="pantry" data-kids="true" data-title="smoky mexican black bean and salsa skillet cb-01 sweetcorn kids">
-      <div class="card-body">
-        <div class="card-meta-top">
-          <span class="card-id">CB-01</span>
-          <span class="card-time">⏱ 15 mins</span>
-        </div>
-        <h2 class="card-title">Smoky Mexican Black Bean & Salsa Skillet[cite: 1, 2]</h2>
-        <div class="card-badges">
-          <span class="mini-badge kids">🧒 Kids Liked</span>
-          <span class="mini-badge">Low GI</span>
-          <span class="mini-badge">Budget Batch</span>
-        </div>
-      </div>
-      <div class="card-footer">
-        <span>380 kcal</span>
-        <strong>19g Protein</strong>
-      </div>
-    </a>
-
-    <!-- CB-02 -->
-    <a class="card-link" href="card_CB-02_lentil_cannellini_salad.html" data-category="pantry" data-kids="false" data-title="zesty italian lentil and cannellini warm salad cb-02 broccoli">
-      <div class="card-body">
-        <div class="card-meta-top">
-          <span class="card-id">CB-02</span>
-          <span class="card-time">⏱ 12 mins</span>
-        </div>
-        <h2 class="card-title">Zesty Italian Lentil & Cannellini Warm Salad[cite: 1, 2]</h2>
-        <div class="card-badges">
-          <span class="mini-badge">High Fibre</span>
-          <span class="mini-badge">Low GI</span>
-        </div>
-      </div>
-      <div class="card-footer">
-        <span>340 kcal</span>
-        <strong>17g Protein</strong>
-      </div>
-    </a>
-
-  </div>
-
-  <!-- TABLE VIEW (HIDDEN INITIALLY) -->
+  <!-- TABLE VIEW CONTAINER -->
   <div class="table-container hidden" id="recipeTable">
     <table>
       <thead>
@@ -581,29 +422,64 @@
           <th onclick="sortTable(3, 'num')">Time (min)</th>
           <th onclick="sortTable(4, 'num')">Calories</th>
           <th onclick="sortTable(5, 'num')">Protein (g)</th>
-          <th onclick="sortTable(6, 'str')">Kids Liked</th>
+          <th onclick="sortTable(6, 'bool')">Kids Liked</th>
         </tr>
       </thead>
-      <tbody id="tableBody">
-        <!-- Table rows are populated and updated dynamically via JavaScript -->
-      </tbody>
+      <tbody id="tableBody"></tbody>
     </table>
   </div>
 </div>
 
 <script>
   // Master Recipe Data Array
-  const recipes = [
-    { id: 'BK-01', title: 'Whipped Berry & Nut Butter Protein Bowl', category: 'breakfast', catName: 'Breakfast', time: 5, kcal: 370, protein: 32, kids: true, link: 'card_BK-01_whipped_berry_bowl.html', keywords: 'yoghurt chia breakfast berries no-cook' },
-    { id: 'HF-60', title: 'Speedy Middle Eastern Harissa Lamb with Bulgur', category: 'meat', catName: 'Meat & Poultry', time: 25, kcal: 565, protein: 38, kids: false, link: 'card1_speedy_harissa_lamb.html', keywords: 'lamb mince bulgur wheat peppers high-protein' },
-    { id: 'HF-59', title: 'Quick Greek Style Oregano Chicken Pasta Salad', category: 'meat', catName: 'Meat & Poultry', time: 25, kcal: 510, protein: 42, kids: true, link: 'card4_greek_oregano_chicken_pasta.html', keywords: 'chicken pasta ditali cucumber cold lunch' },
-    { id: 'HF-56', title: 'North Indian Roasted Cauliflower & Lentil Dal', category: 'veggie', catName: 'Vegetarian & Vegan', time: 35, kcal: 410, protein: 18, kids: false, link: 'card2_cauliflower_dal.html', keywords: 'cauliflower lentil dal coconut high-fibre' },
-    { id: 'HF-52', title: "Beetroot, Sweet Potato & Goat's Cheese Bowl", category: 'veggie', catName: 'Vegetarian & Vegan', time: 25, kcal: 480, protein: 16, kids: false, link: 'card_HF-52_beetroot_goats_cheese_couscous.html', keywords: 'couscous beetroot sweet potato goats cheese' },
-    { id: 'EP-01', title: 'Garlic Butter Chicken with Quinoa & Greens', category: 'meat', catName: 'Meat & Poultry', time: 35, kcal: 540, protein: 47, kids: true, link: 'card3_garlic_butter_chicken_quinoa.html', keywords: 'chicken quinoa broccoli kale garlic butter' },
-    { id: 'EP-02', title: 'Cheeky Quinoa with Mushroom & Crispy Tofu', category: 'veggie', catName: 'Vegetarian & Vegan', time: 35, kcal: 460, protein: 21, kids: false, link: 'card4_cheeky_quinoa_mushroom_tofu.html', keywords: 'tofu quinoa mushrooms vegan gluten-free' },
-    { id: 'CB-01', title: 'Smoky Mexican Black Bean & Salsa Skillet', category: 'pantry', catName: 'Pantry & Pulses', time: 15, kcal: 380, protein: 19, kids: true, link: 'card_CB-01_black_bean_skillet.html', keywords: 'black beans sweetcorn salsa greek yogurt skillet' },
-    { id: 'CB-02', title: 'Zesty Italian Lentil & Cannellini Warm Salad', category: 'pantry', catName: 'Pantry & Pulses', time: 12, kcal: 340, protein: 17, kids: false, link: 'card_CB-02_lentil_cannellini_salad.html', keywords: 'lentils cannellini beans sun-dried tomatoes' }
+  const baseRecipes = [
+    { id: 'BK-01', title: 'Whipped Berry & Nut Butter Protein Bowl', category: 'breakfast', catName: 'Breakfast', time: 5, kcal: 370, protein: 32, defaultKids: true, link: 'card_BK-01_whipped_berry_bowl.html', tags: ['No-Cook', 'Glucose Friendly'], keywords: 'yoghurt chia breakfast berries no-cook' },
+    { id: 'HF-60', title: 'Speedy Middle Eastern Harissa Lamb with Bulgur', category: 'meat', catName: 'Meat & Poultry', time: 25, kcal: 565, protein: 38, defaultKids: false, link: 'card1_speedy_harissa_lamb.html', tags: ['Bulk Cook', 'High Protein'], keywords: 'lamb mince bulgur wheat peppers' },
+    { id: 'HF-59', title: 'Quick Greek Style Oregano Chicken Pasta Salad', category: 'meat', catName: 'Meat & Poultry', time: 25, kcal: 510, protein: 42, defaultKids: true, link: 'card4_greek_oregano_chicken_pasta.html', tags: ['Cold Lunch', 'High Protein'], keywords: 'chicken pasta ditali cucumber' },
+    { id: 'HF-56', title: 'North Indian Roasted Cauliflower & Lentil Dal', category: 'veggie', catName: 'Vegetarian & Vegan', time: 35, kcal: 410, protein: 18, defaultKids: false, link: 'card2_cauliflower_dal.html', tags: ['Freeze Safe', 'High Fibre'], keywords: 'cauliflower lentil dal coconut' },
+    { id: 'HF-52', title: "Beetroot, Sweet Potato & Goat's Cheese Bowl", category: 'veggie', catName: 'Vegetarian & Vegan', time: 25, kcal: 480, protein: 16, defaultKids: false, link: 'card_HF-52_beetroot_goats_cheese_couscous.html', tags: ['Quick Prep', 'Source Fibre'], keywords: 'couscous beetroot sweet potato goats cheese' },
+    { id: 'EP-01', title: 'Garlic Butter Chicken with Quinoa & Greens', category: 'meat', catName: 'Meat & Poultry', time: 35, kcal: 540, protein: 47, defaultKids: true, link: 'card3_garlic_butter_chicken_quinoa.html', tags: ['High Protein', 'Gluten Free'], keywords: 'chicken quinoa broccoli kale garlic butter' },
+    { id: 'EP-02', title: 'Cheeky Quinoa with Mushroom & Crispy Tofu', category: 'veggie', catName: 'Vegetarian & Vegan', time: 35, kcal: 460, protein: 21, defaultKids: false, link: 'card4_cheeky_quinoa_mushroom_tofu.html', tags: ['Vegan', 'Gluten Free'], keywords: 'tofu quinoa mushrooms vegan gluten-free' },
+    { id: 'CB-01', title: 'Smoky Mexican Black Bean & Salsa Skillet', category: 'pantry', catName: 'Pantry & Pulses', time: 15, kcal: 380, protein: 19, defaultKids: true, link: 'card_CB-01_black_bean_skillet.html', tags: ['Low GI', 'Budget Batch'], keywords: 'black beans sweetcorn salsa greek yogurt skillet' },
+    { id: 'CB-02', title: 'Zesty Italian Lentil & Cannellini Warm Salad', category: 'pantry', catName: 'Pantry & Pulses', time: 12, kcal: 340, protein: 17, defaultKids: false, link: 'card_CB-02_lentil_cannellini_salad.html', tags: ['High Fibre', 'Low GI'], keywords: 'lentils cannellini beans sun-dried tomatoes' }
   ];
+
+  // Load Saved Kids Preferences from LocalStorage
+  function loadKidsPreferences() {
+    const saved = localStorage.getItem('recipe_kids_liked');
+    if (!saved) return {};
+    try { return JSON.parse(saved); } catch (e) { return {}; }
+  }
+
+  function saveKidsPreferences(prefs) {
+    localStorage.setItem('recipe_kids_liked', JSON.stringify(prefs));
+  }
+
+  let kidsPrefs = loadKidsPreferences();
+
+  // Combine Base Recipe data with Saved Preferences
+  let recipes = baseRecipes.map(r => ({
+    ...r,
+    kids: (kidsPrefs[r.id] !== undefined) ? kidsPrefs[r.id] : r.defaultKids
+  }));
+
+  // Toggle Kids Status Function
+  function toggleKidsLiked(recipeId, event) {
+    if (event) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
+    const recipe = recipes.find(r => r.id === recipeId);
+    if (!recipe) return;
+
+    recipe.kids = !recipe.kids;
+    kidsPrefs[recipeId] = recipe.kids;
+    saveKidsPreferences(kidsPrefs);
+
+    // Re-render views with current filters
+    renderGrid();
+    renderTable();
+  }
 
   let currentView = 'grid';
   let activeCategory = 'all';
@@ -628,47 +504,71 @@
     applyFilters();
   }
 
-  // Live Search & Filter Logic
+  // Search Input Listener
   const searchInput = document.getElementById('searchInput');
   searchInput.addEventListener('input', applyFilters);
 
-  function applyFilters() {
+  function matchesFilter(r, query) {
+    let matchCat = false;
+    if (activeCategory === 'all') matchCat = true;
+    else if (activeCategory === 'kids') matchCat = r.kids === true;
+    else matchCat = r.category === activeCategory;
+
+    const fullString = `${r.id} ${r.title} ${r.catName} ${r.keywords} ${r.kids ? 'kids liked family' : ''}`.toLowerCase();
+    const matchSearch = fullString.includes(query);
+
+    return matchCat && matchSearch;
+  }
+
+  // Render Grid View
+  function renderGrid() {
+    const grid = document.getElementById('recipeGrid');
     const query = searchInput.value.toLowerCase().trim();
+    grid.innerHTML = '';
 
-    // 1. Filter Grid Elements
-    const cards = document.querySelectorAll('.card-link');
-    cards.forEach(card => {
-      let matchCat = false;
-      if (activeCategory === 'all') matchCat = true;
-      else if (activeCategory === 'kids') matchCat = card.dataset.kids === 'true';
-      else matchCat = card.dataset.category === activeCategory;
+    recipes.forEach(r => {
+      const isVisible = matchesFilter(r, query);
+      const card = document.createElement('div');
+      card.className = `card-item ${isVisible ? '' : 'hidden'}`;
 
-      const matchSearch = card.dataset.title.includes(query);
-      card.classList.toggle('hidden', !(matchCat && matchSearch));
+      const tagsHtml = r.tags.map(t => `<span class="mini-badge">${t}</span>`).join('');
+
+      card.innerHTML = `
+        <a class="card-body" href="${r.link}">
+          <div class="card-meta-top">
+            <span class="card-id">${r.id}</span>
+            <span class="card-time">⏱ ${r.time} mins</span>
+          </div>
+          <h2 class="card-title">${r.title}</h2>
+          <div class="card-badges">
+            ${tagsHtml}
+          </div>
+        </a>
+        <div class="card-footer">
+          <div>
+            <button class="kids-toggle-btn ${r.kids ? 'liked' : ''}" onclick="toggleKidsLiked('${r.id}', event)">
+              ${r.kids ? '🧒 Kids Liked ⭐' : '🧒 Kids? (Click)'}
+            </button>
+          </div>
+          <div>
+            <span>${r.kcal} kcal</span> • <strong>${r.protein}g P</strong>
+          </div>
+        </div>
+      `;
+      grid.appendChild(card);
     });
-
-    // 2. Render and Filter Table Rows
-    renderTable(query);
   }
 
   // Render Table View
-  function renderTable(query = '') {
+  function renderTable() {
     const tbody = document.getElementById('tableBody');
+    const query = searchInput.value.toLowerCase().trim();
     tbody.innerHTML = '';
 
-    const filtered = recipes.filter(r => {
-      let matchCat = false;
-      if (activeCategory === 'all') matchCat = true;
-      else if (activeCategory === 'kids') matchCat = r.kids === true;
-      else matchCat = r.category === activeCategory;
+    recipes.forEach(r => {
+      const isVisible = matchesFilter(r, query);
+      if (!isVisible) return;
 
-      const fullString = `${r.id} ${r.title} ${r.catName} ${r.keywords} ${r.kids ? 'kids' : ''}`.toLowerCase();
-      const matchSearch = fullString.includes(query);
-
-      return matchCat && matchSearch;
-    });
-
-    filtered.forEach(r => {
       const tr = document.createElement('tr');
       tr.innerHTML = `
         <td><span class="card-id">${r.id}</span></td>
@@ -677,10 +577,19 @@
         <td>${r.time} mins</td>
         <td>${r.kcal} kcal</td>
         <td><strong>${r.protein}g</strong></td>
-        <td>${r.kids ? '⭐ Yes' : '—'}</td>
+        <td>
+          <button class="kids-toggle-btn ${r.kids ? 'liked' : ''}" onclick="toggleKidsLiked('${r.id}', event)">
+            ${r.kids ? '⭐ Liked' : '— Set'}
+          </button>
+        </td>
       `;
       tbody.appendChild(tr);
     });
+  }
+
+  function applyFilters() {
+    renderGrid();
+    renderTable();
   }
 
   // Table Column Sorting
@@ -710,6 +619,8 @@
 
       if (type === 'num') {
         return currentSortAsc ? valA - valB : valB - valA;
+      } else if (type === 'bool') {
+        return currentSortAsc ? (valA === valB ? 0 : valA ? -1 : 1) : (valA === valB ? 0 : valA ? 1 : -1);
       } else {
         return currentSortAsc 
           ? String(valA).localeCompare(String(valB)) 
@@ -720,7 +631,8 @@
     applyFilters();
   }
 
-  // Initial Table Load
+  // Initial App Render
+  renderGrid();
   renderTable();
 </script>
 
