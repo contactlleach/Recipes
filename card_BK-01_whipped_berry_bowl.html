@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>BK-01: Whipped Berry & Nut Butter Protein Bowl</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Open+Sans:wght@400;600&display=swap');
+  @page { size: 210mm 148mm landscape; margin: 0; }
+  * { box-sizing: border-box; margin: 0; padding: 0; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body { font-family: 'Open Sans', sans-serif; background-color: #f1f5f9; color: #1e293b; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; }
+  .card { width: 210mm; height: 148mm; background: #ffffff; display: grid; grid-template-columns: 35% 65%; overflow: hidden; page-break-inside: avoid; }
+  .sidebar { background: #f8fafc; border-right: 2px solid #e2e8f0; padding: 10px 12px; display: flex; flex-direction: column; gap: 6px; }
+  .brand-header { display: flex; justify-content: space-between; align-items: center; }
+  .brand-badge { background: #be123c; color: #ffffff; font-family: 'Montserrat', sans-serif; font-size: 8.5px; font-weight: 700; padding: 2px 5px; border-radius: 3px; text-transform: uppercase; }
+  .card-num { font-family: 'Montserrat', sans-serif; font-size: 10px; font-weight: 800; color: #be123c; border: 1.5px solid #be123c; border-radius: 4px; padding: 1px 4px; }
+  .recipe-img { width: 100%; height: 60px; object-fit: cover; border-radius: 6px; border: 1px solid #e2e8f0; }
+  .recipe-title { font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 800; color: #0f172a; line-height: 1.2; }
+  .time-bar { display: grid; grid-template-columns: 1fr 1fr; gap: 4px; background: #e2e8f0; padding: 3px 6px; border-radius: 4px; font-size: 7.5px; font-weight: 600; text-align: center; }
+  .badge-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3px; font-size: 7.5px; font-weight: 600; }
+  .badge { padding: 2px 4px; border-radius: 3px; text-align: center; }
+  .badge.yes { background: #ffe4e6; color: #be123c; }
+  .macros-box { background: #fff1f2; border-radius: 4px; padding: 3px 5px; }
+  .macros-title { font-family: 'Montserrat', sans-serif; font-size: 7px; font-weight: 700; text-transform: uppercase; color: #9f1239; margin-bottom: 2px; }
+  .macros-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 2px; text-align: center; font-size: 7px; }
+  .macros-grid div strong { display: block; color: #0f172a; font-size: 8px; }
+  .shopping-list h4 { font-family: 'Montserrat', sans-serif; font-size: 8px; text-transform: uppercase; color: #475569; margin-bottom: 2px; }
+  .shopping-list ul { list-style: none; font-size: 7.5px; line-height: 1.25; }
+  .shopping-list li::before { content: "• "; color: #be123c; font-weight: bold; }
+  .main-content { padding: 10px 14px; display: flex; flex-direction: column; gap: 6px; }
+  .section-heading { font-family: 'Montserrat', sans-serif; font-size: 9px; font-weight: 700; text-transform: uppercase; color: #0f172a; border-bottom: 1.5px solid #e2e8f0; padding-bottom: 1px; }
+  table { width: 100%; border-collapse: collapse; font-size: 7.5px; }
+  th { background: #f1f5f9; text-align: left; padding: 2px 4px; font-weight: 700; color: #334155; }
+  td { padding: 1.8px 4px; border-bottom: 1px solid #f1f5f9; }
+  .steps { display: flex; flex-direction: column; gap: 3.5px; font-size: 7.8px; line-height: 1.25; }
+  .step-item { display: flex; gap: 5px; }
+  .step-num { background: #be123c; color: white; font-weight: bold; min-width: 14px; height: 14px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 7.5px; flex-shrink: 0; margin-top: 1px; }
+  @media print { .nav-btn { display: none !important; } body { background-color: #ffffff; } }
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="sidebar">
+    <div class="brand-header">
+      <span class="brand-badge">Breakfast</span>
+      <span class="card-num">BK-01</span>
+    </div>
+    <img class="recipe-img" src="https://images.unsplash.com/photo-1511690656952-34342bb7c2f2?auto=format&fit=crop&w=600&q=80" alt="Whipped Berry Bowl">
+    <h2 class="recipe-title">Whipped Berry & Nut Butter Protein Bowl</h2>
+    <div class="time-bar">
+      <div>Prep: <strong>5 mins</strong></div>
+      <div>Cook: <strong>0 mins</strong></div>
+    </div>
+    <div class="badge-grid">
+      <div class="badge yes">✓ No-Cook</div>
+      <div class="badge yes">✓ Glucose OK</div>
+      <div class="badge yes">✓ Prep Ahead</div>
+      <div class="badge yes">✓ 32g Protein</div>
+    </div>
+    <div class="macros-box">
+      <div class="macros-title">Macros (Per Portion)</div>
+      <div class="macros-grid">
+        <div><strong>370</strong>kcal</div>
+        <div><strong>32g</strong>Prot</div>
+        <div><strong>28g</strong>Carb</div>
+        <div><strong>12g</strong>Fat</div>
+        <div><strong>6g</strong>Fibre</div>
+      </div>
+    </div>
+    <div class="shopping-list">
+      <h4>Shopping List</h4>
+      <ul>
+        <li>0% Greek-Style Natural Yoghurt</li>
+        <li>Unflavoured Whey or Plant Protein</li>
+        <li>Frozen Mixed Berries</li>
+        <li>Smooth Peanut or Almond Butter</li>
+        <li>Whole Chia Seeds</li>
+      </ul>
+    </div>
+  </div>
+  <div class="main-content">
+    <div>
+      <h3 class="section-heading">Portion Scaling</h3>
+      <table>
+        <thead>
+          <tr><th>Ingredient</th><th>2 Portions</th><th>4 Portions</th><th>6 Portions</th><th>8 Portions</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>0% Greek Yoghurt</td><td>300g</td><td>600g</td><td>900g</td><td>1200g</td></tr>
+          <tr><td>Protein Powder</td><td>40g (1.5 scoops)</td><td>80g (3 scoops)</td><td>120g (4.5 scoops)</td><td>160g (6 scoops)</td></tr>
+          <tr><td>Frozen Mixed Berries</td><td>150g</td><td>300g</td><td>450g</td><td>600g</td></tr>
+          <tr><td>Almond / Peanut Butter</td><td>30g (2 tbsp)</td><td>60g (4 tbsp)</td><td>90g (6 tbsp)</td><td>120g (8 tbsp)</td></tr>
+          <tr><td>Chia Seeds</td><td>10g (1 tbsp)</td><td>20g (2 tbsp)</td><td>30g (3 tbsp)</td><td>40g (4 tbsp)</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div>
+      <h3 class="section-heading">Preparation Instructions</h3>
+      <div class="steps" style="margin-top: 2px;">
+        <div class="step-item"><div class="step-num">1</div><div><strong>Whip Protein Base:</strong> In a mixing bowl, vigorously whisk Greek yoghurt and protein powder together with a fork or small whisk until glossy and airy.</div></div>
+        <div class="step-item"><div class="step-num">2</div><div><strong>Warm Compote:</strong> Microwave frozen berries in a small dish for 45–60 seconds until juicy, soft, and warm.</div></div>
+        <div class="step-item"><div class="step-num">3</div><div><strong>Assemble Bowls:</strong> Spoon whipped yoghurt into bowls, ladle warm berry compote over the top, and drizzle with peanut/almond butter.</div></div>
+        <div class="step-item"><div class="step-num">4</div><div><strong>Garnish & Serve:</strong> Scatter chia seeds over the top for crunch and omega-3s. Serve immediately or store covered in fridge up to 24 hrs.</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="nav-btn" style="position: fixed; bottom: 12px; left: 50%; transform: translateX(-50%); font-size: 11px; font-family: Montserrat, sans-serif;">
+  <a href="index.html" style="color: #059669; text-decoration: none; font-weight: 700; background: #ffffff; padding: 4px 10px; border-radius: 20px; border: 1px solid #cbd5e1; box-shadow: 0 2px 5px rgba(0,0,0,0.08);">← Return to Dashboard</a>
+</div>
+</body>
+</html>
