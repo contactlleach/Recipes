@@ -37,7 +37,6 @@
       margin: 0 auto;
     }
 
-    /* Header */
     header {
       text-align: center;
       margin-bottom: 28px;
@@ -70,7 +69,6 @@
       margin-top: 4px;
     }
 
-    /* Controls: Search & Filter */
     .controls {
       display: flex;
       flex-direction: column;
@@ -130,7 +128,6 @@
       border-color: var(--primary);
     }
 
-    /* Recipe Grid */
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -246,10 +243,11 @@
 
   <div class="controls">
     <div class="search-box">
-      <input type="text" id="searchInput" placeholder="Search by name, ingredient, or card ID (e.g., lamb, quinoa, HF-52)...">
+      <input type="text" id="searchInput" placeholder="Search by name, ingredient, or card ID (e.g., BK-01, lamb, oats)...">
     </div>
     <div class="filter-pills">
       <button class="pill active" onclick="filterCategory('all', this)">All Recipes</button>
+      <button class="pill" onclick="filterCategory('breakfast', this)">Breakfast</button>
       <button class="pill" onclick="filterCategory('meat', this)">Meat & Poultry</button>
       <button class="pill" onclick="filterCategory('veggie', this)">Vegetarian & Vegan</button>
       <button class="pill" onclick="filterCategory('pantry', this)">Pantry & Pulses</button>
@@ -257,6 +255,25 @@
   </div>
 
   <div class="grid" id="recipeGrid">
+
+    <!-- BK-01 -->
+    <a class="card-link" href="card_BK-01_whipped_berry_bowl.html" data-category="breakfast" data-title="high-protein whipped berry and nut butter bowl bk-01 breakfast">
+      <div class="card-body">
+        <div class="card-meta-top">
+          <span class="card-id">BK-01</span>
+          <span class="card-time">⏱ 5 mins</span>
+        </div>
+        <h2 class="card-title">Whipped Berry & Nut Butter Protein Bowl</h2>
+        <div class="card-badges">
+          <span class="mini-badge">No-Cook</span>
+          <span class="mini-badge">Glucose Friendly</span>
+        </div>
+      </div>
+      <div class="card-footer">
+        <span>370 kcal</span>
+        <strong>32g Protein</strong>
+      </div>
+    </a>
 
     <!-- HF-60 -->
     <a class="card-link" href="card1_speedy_harissa_lamb.html" data-category="meat" data-title="speedy middle eastern harissa lamb with bulgur hf-60">
