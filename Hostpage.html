@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Kitchen Recipe Hub</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Open+Sans:wght@400;600&display=swap');
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Open Sans', sans-serif; background-color: #f1f5f9; color: #1e293b; padding: 24px; }
+  .container { max-width: 900px; margin: 0 auto; }
+  header { margin-bottom: 24px; text-align: center; }
+  h1 { font-family: 'Montserrat', sans-serif; font-size: 28px; font-weight: 800; color: #0f172a; }
+  p { color: #64748b; font-size: 14px; margin-top: 4px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; margin-top: 20px; }
+  .recipe-card-link { background: #ffffff; border-radius: 10px; padding: 16px; text-decoration: none; color: inherit; box-shadow: 0 2px 8px rgba(0,0,0,0.06); transition: transform 0.15s, box-shadow 0.15s; border-left: 5px solid #059669; }
+  .recipe-card-link:hover { transform: translateY(-3px); box-shadow: 0 6px 14px rgba(0,0,0,0.1); }
+  .card-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+  .card-id { background: #dcfce7; color: #166534; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 11px; padding: 2px 6px; border-radius: 4px; }
+  .card-time { font-size: 11px; color: #64748b; font-weight: 600; }
+  .card-title { font-family: 'Montserrat', sans-serif; font-size: 14px; font-weight: 700; color: #0f172a; margin-bottom: 6px; line-height: 1.3; }
+  .card-macros { font-size: 11px; color: #475569; }
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>My Recipe Collection</h1>
+    <p>Printable A5 Recipe Cards & Nutrition Guides</p>
+  </header>
+  <div class="grid">
+    <a class="recipe-card-link" href="card1_speedy_harissa_lamb.html">
+      <div class="card-top"><span class="card-id">HF-60</span><span class="card-time">⏱ 25 mins</span></div>
+      <div class="card-title">Harissa Lamb with Bulgur</div>
+      <div class="card-macros">565 kcal • 38g Protein</div>
+    </a>
+    <a class="recipe-card-link" href="card2_cauliflower_dal.html">
+      <div class="card-top"><span class="card-id">HF-56</span><span class="card-time">⏱ 35 mins</span></div>
+      <div class="card-title">Roasted Cauliflower & Lentil Dal</div>
+      <div class="card-macros">410 kcal • 18g Protein</div>
+    </a>
+    <a class="recipe-card-link" href="card_HF-52_beetroot_goats_cheese_couscous.html">
+      <div class="card-top"><span class="card-id">HF-52</span><span class="card-time">⏱ 25 mins</span></div>
+      <div class="card-title">Beetroot & Goat's Cheese Couscous</div>
+      <div class="card-macros">480 kcal • 16g Protein</div>
+    </a>
+    <a class="recipe-card-link" href="card4_greek_oregano_chicken_pasta.html">
+      <div class="card-top"><span class="card-id">HF-59</span><span class="card-time">⏱ 25 mins</span></div>
+      <div class="card-title">Greek Oregano Chicken Pasta Salad</div>
+      <div class="card-macros">510 kcal • 42g Protein</div>
+    </a>
+    <a class="recipe-card-link" href="card3_garlic_butter_chicken_quinoa.html">
+      <div class="card-top"><span class="card-id">EP-01</span><span class="card-time">⏱ 35 mins</span></div>
+      <div class="card-title">Garlic Butter Chicken & Quinoa</div>
+      <div class="card-macros">540 kcal • 47g Protein</div>
+    </a>
+    <a class="recipe-card-link" href="card4_cheeky_quinoa_mushroom_tofu.html">
+      <div class="card-top"><span class="card-id">EP-02</span><span class="card-time">⏱ 35 mins</span></div>
+      <div class="card-title">Cheeky Quinoa with Mushroom & Tofu</div>
+      <div class="card-macros">460 kcal • 21g Protein</div>
+    </a>
+    <a class="recipe-card-link" href="card_CB-01_black_bean_skillet.html">
+      <div class="card-top"><span class="card-id">CB-01</span><span class="card-time">⏱ 15 mins</span></div>
+      <div class="card-title">Smoky Mexican Black Bean Skillet</div>
+      <div class="card-macros">380 kcal • 19g Protein</div>
+    </a>
+  </div>
+</div>
+</body>
+</html>

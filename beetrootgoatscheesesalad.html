@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>HF-52: Beetroot, Sweet Potato & Goat's Cheese Couscous Bowl</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Open+Sans:wght@400;600&display=swap');
+  @page { size: 210mm 148mm landscape; margin: 0; }
+  * { box-sizing: border-box; margin: 0; padding: 0; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body { font-family: 'Open Sans', sans-serif; background-color: #f1f5f9; color: #1e293b; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; }
+  .card { width: 210mm; height: 148mm; background: #ffffff; display: grid; grid-template-columns: 35% 65%; overflow: hidden; page-break-inside: avoid; }
+  .sidebar { background: #f8fafc; border-right: 2px solid #e2e8f0; padding: 10px 12px; display: flex; flex-direction: column; gap: 6px; }
+  .brand-header { display: flex; justify-content: space-between; align-items: center; }
+  .brand-badge { background: #059669; color: #ffffff; font-family: 'Montserrat', sans-serif; font-size: 8.5px; font-weight: 700; padding: 2px 5px; border-radius: 3px; text-transform: uppercase; }
+  .card-num { font-family: 'Montserrat', sans-serif; font-size: 10px; font-weight: 800; color: #059669; border: 1.5px solid #059669; border-radius: 4px; padding: 1px 4px; }
+  .recipe-img { width: 100%; height: 60px; object-fit: cover; border-radius: 6px; border: 1px solid #e2e8f0; }
+  .recipe-title { font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 800; color: #0f172a; line-height: 1.2; }
+  .time-bar { display: grid; grid-template-columns: 1fr 1fr; gap: 4px; background: #e2e8f0; padding: 3px 6px; border-radius: 4px; font-size: 7.5px; font-weight: 600; text-align: center; }
+  .badge-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3px; font-size: 7.5px; font-weight: 600; }
+  .badge { padding: 2px 4px; border-radius: 3px; text-align: center; }
+  .badge.yes { background: #dcfce7; color: #166534; }
+  .badge.no { background: #fee2e2; color: #991b1b; }
+  .macros-box { background: #f1f5f9; border-radius: 4px; padding: 3px 5px; }
+  .macros-title { font-family: 'Montserrat', sans-serif; font-size: 7px; font-weight: 700; text-transform: uppercase; color: #475569; margin-bottom: 2px; }
+  .macros-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 2px; text-align: center; font-size: 7px; }
+  .macros-grid div strong { display: block; color: #0f172a; font-size: 8px; }
+  .shopping-list h4 { font-family: 'Montserrat', sans-serif; font-size: 8px; text-transform: uppercase; color: #475569; margin-bottom: 2px; }
+  .shopping-list ul { list-style: none; font-size: 7.5px; line-height: 1.25; }
+  .shopping-list li::before { content: "• "; color: #059669; font-weight: bold; }
+  .main-content { padding: 10px 14px; display: flex; flex-direction: column; gap: 6px; }
+  .section-heading { font-family: 'Montserrat', sans-serif; font-size: 9px; font-weight: 700; text-transform: uppercase; color: #0f172a; border-bottom: 1.5px solid #e2e8f0; padding-bottom: 1px; }
+  table { width: 100%; border-collapse: collapse; font-size: 7.5px; }
+  th { background: #f1f5f9; text-align: left; padding: 2px 4px; font-weight: 700; color: #334155; }
+  td { padding: 1.8px 4px; border-bottom: 1px solid #f1f5f9; }
+  .steps { display: flex; flex-direction: column; gap: 3.5px; font-size: 7.8px; line-height: 1.25; }
+  .step-item { display: flex; gap: 5px; }
+  .step-num { background: #059669; color: white; font-weight: bold; min-width: 14px; height: 14px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 7.5px; flex-shrink: 0; margin-top: 1px; }
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="sidebar">
+    <div class="brand-header">
+      <span class="brand-badge">My Kitchen</span>
+      <span class="card-num">HF-52</span>
+    </div>
+    <img class="recipe-img" src="https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=600&q=80" alt="Beetroot Couscous Salad">
+    <h2 class="recipe-title">Beetroot, Sweet Potato & Goat's Cheese Bowl</h2>
+    <div class="time-bar">
+      <div>Prep: <strong>10 mins</strong></div>
+      <div>Cook: <strong>15 mins</strong></div>
+    </div>
+    <div class="badge-grid">
+      <div class="badge yes">✓ Bulk Cook</div>
+      <div class="badge no">✗ Freeze Greens</div>
+      <div class="badge yes">✓ Prep Ahead</div>
+      <div class="badge yes">✓ Source Fibre</div>
+    </div>
+    <div class="macros-box">
+      <div class="macros-title">Macros (Per Portion)</div>
+      <div class="macros-grid">
+        <div><strong>480</strong>kcal</div>
+        <div><strong>16g</strong>Prot</div>
+        <div><strong>62g</strong>Carb</div>
+        <div><strong>18g</strong>Fat</div>
+        <div><strong>10g</strong>Fibre</div>
+      </div>
+    </div>
+    <div class="shopping-list">
+      <h4>Shopping List</h4>
+      <ul>
+        <li>Cooked Beetroot & Sweet Potato</li>
+        <li>Couscous & Dried Thyme</li>
+        <li>Goat's Cheese & Crispy Onions</li>
+        <li>Wild Rocket & Red Onion</li>
+        <li>Honey, Soy Sauce, Red Wine Vinegar</li>
+      </ul>
+    </div>
+  </div>
+  <div class="main-content">
+    <div>
+      <h3 class="section-heading">Portion Scaling</h3>
+      <table>
+        <thead>
+          <tr><th>Ingredient</th><th>2 Portions</th><th>4 Portions</th><th>6 Portions</th><th>8 Portions</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Sweet Potato (cubed)</td><td>150g</td><td>300g</td><td>450g</td><td>600g</td></tr>
+          <tr><td>Cooked Beetroot (diced)</td><td>150g</td><td>300g</td><td>450g</td><td>600g</td></tr>
+          <tr><td>Couscous</td><td>100g</td><td>200g</td><td>300g</td><td>400g</td></tr>
+          <tr><td>Goat's Cheese</td><td>50g</td><td>100g</td><td>150g</td><td>200g</td></tr>
+          <tr><td>Honey & Soy Sauce</td><td>1 tbsp / 1 tbsp</td><td>2 tbsp / 2 tbsp</td><td>3 tbsp / 3 tbsp</td><td>4 tbsp / 4 tbsp</td></tr>
+          <tr><td>Red Wine Vinegar</td><td>1 tbsp</td><td>2 tbsp</td><td>3 tbsp</td><td>4 tbsp</td></tr>
+          <tr><td>Wild Rocket</td><td>40g</td><td>80g</td><td>120g</td><td>160g</td></tr>
+          <tr><td>Crispy Onions</td><td>15g</td><td>30g</td><td>45g</td><td>60g</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div>
+      <h3 class="section-heading">Cooking Instructions</h3>
+      <div class="steps" style="margin-top: 2px;">
+        <div class="step-item"><div class="step-num">1</div><div><strong>Roast Veg:</strong> Toss cubed sweet potato and sliced red onion with oil, thyme, salt, and pepper. Roast at 200°C for 18–20 mins until tender.</div></div>
+        <div class="step-item"><div class="step-num">2</div><div><strong>Prepare Couscous:</strong> Place couscous in a bowl with 120ml boiling water (for 2 portions) and salt. Cover for 5 mins, then fluff with a fork.</div></div>
+        <div class="step-item"><div class="step-num">3</div><div><strong>Whisk Dressing:</strong> Emulsify olive oil, soy sauce, honey, and red wine vinegar with a pinch of black pepper.</div></div>
+        <div class="step-item"><div class="step-num">4</div><div><strong>Assemble:</strong> Combine couscous, diced beetroot, roasted sweet potato/onion, and rocket. Drizzle with dressing, crumble goat's cheese, and top with crispy onions.</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
