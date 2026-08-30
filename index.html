@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Personal Recipe Cards | My Kitchen</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Open+Sans:wght@400;500;600&display=swap');
+
+    :root {
+      --primary: #059669;
+      --primary-dark: #047857;
+      --bg: #f8fafc;
+      --surface: #ffffff;
+      --text: #0f172a;
+      --text-muted: #64748b;
+      --border: #e2e8f0;
+      --radius: 12px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Open Sans', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      padding: 32px 20px;
+      line-height: 1.5;
+    }
+
+    .container {
+      max-width: 1080px;
+      margin: 0 auto;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 28px;
+    }
+
+    .brand-tag {
+      display: inline-block;
+      background: #dcfce7;
+      color: #166534;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 20px;
+      letter-spacing: 0.5px;
+      margin-bottom: 8px;
+    }
+
+    h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 32px;
+      font-weight: 800;
+      color: var(--text);
+    }
+
+    .subtitle {
+      color: var(--text-muted);
+      font-size: 15px;
+      margin-top: 4px;
+    }
+
+    .controls {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-bottom: 28px;
+    }
+
+    .search-box {
+      width: 100%;
+      position: relative;
+    }
+
+    .search-box input {
+      width: 100%;
+      padding: 12px 16px;
+      font-size: 15px;
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius);
+      outline: none;
+      background: var(--surface);
+      font-family: inherit;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .search-box input:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(5, 150, 105, 0.15);
+    }
+
+    .filter-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .pill {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all 0.15s ease;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    .pill:hover {
+      background: #f1f5f9;
+      color: var(--text);
+    }
+
+    .pill.active {
+      background: var(--primary);
+      color: #ffffff;
+      border-color: var(--primary);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .card-link {
+      text-decoration: none;
+      color: inherit;
+      background: var(--surface);
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+    }
+
+    .card-link:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+      border-color: var(--primary);
+    }
+
+    .card-body {
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      gap: 8px;
+    }
+
+    .card-meta-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .card-id {
+      background: #f1f5f9;
+      color: var(--text);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 4px;
+      border: 1px solid var(--border);
+    }
+
+    .card-time {
+      font-size: 12px;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+
+    .card-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.35;
+      margin-top: 2px;
+    }
+
+    .card-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      margin-top: auto;
+      padding-top: 6px;
+    }
+
+    .mini-badge {
+      font-size: 10px;
+      font-weight: 600;
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      padding: 2px 6px;
+      border-radius: 4px;
+      color: #475569;
+    }
+
+    .card-footer {
+      border-top: 1px solid #f1f5f9;
+      padding: 10px 16px;
+      background: #fafbfc;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .card-footer strong {
+      color: var(--primary-dark);
+      font-weight: 700;
+    }
+
+    .hidden {
+      display: none !important;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <header>
+    <span class="brand-tag">Digital Recipe Hub</span>
+    <h1>My Recipe Collection</h1>
+    <p class="subtitle">Print-ready A5 HelloFresh-style cards with portion scaling & macros</p>
+  </header>
+
+  <div class="controls">
+    <div class="search-box">
+      <input type="text" id="searchInput" placeholder="Search by name, ingredient, or card ID (e.g., BK-01, lamb, oats)...">
+    </div>
+    <div class="filter-pills">
+      <button class="pill active" onclick="filterCategory('all', this)">All Recipes</button>
+      <button class="pill" onclick="filterCategory('breakfast', this)">Breakfast</button>
+      <button class="pill" onclick="filterCategory('meat', this)">Meat & Poultry</button>
+      <button class="pill" onclick="filterCategory('veggie', this)">Vegetarian & Vegan</button>
+      <button class="pill" onclick="filterCategory('pantry', this)">Pantry & Pulses</button>
+    </div>
+  </div>
+
+  <div class="grid" id="recipeGrid">
+
+    <!-- BK-01 -->
+    <a class="card-link" href="card_BK-01_whipped_berry_bowl.html" data-category="breakfast" data-title="high-protein whipped berry and nut butter bowl bk-01 breakfast">
+      <div class="card-body">
+        <div class="card-meta-top">
+          <span class="card-id">BK-01</span>
+          <span class="card-time">⏱ 5 mins</span>
+        </div>
+        <h2 class="card-title">Whipped Berry & Nut Butter Protein Bowl</h2>
+        <div class="card-badges">
+          <span class="mini-badge">No-Cook</span>
+          <span class="mini-badge">Glucose Friendly</span>
+        </div>
+      </div>
+      <div class="card-footer">
+        <span>370 kcal</span>
+        <strong>32g Protein</strong>
+      </div>
+    </a>
+
+    <!-- HF-60 -->
+    <a class="card-link" href="card1_speedy_harissa_lamb.html" data-category="meat" data-title="speedy middle eastern harissa lamb with bulgur hf-60">
+      <div class="card-body">
+        <div class="card-meta-top">
+          <span class="card-id">HF-60</span>
+          <span class="card-time">⏱ 25 mins</span>
+        </div>
+        <h2 class="card-title">Speedy Middle Eastern Harissa Lamb with Bulgur</h2>
+        <div class="card-badges">
+          <span class="mini-badge">Bulk Cook</span>
+          <span class="mini-badge">High Protein</span>
+        </div>
+      </div>
+      <div class="card-footer">
+        <span>565 kcal</span>
+        <strong>38g Protein</strong>
+      </div>
+    </a>
+
+    <!-- HF-59 -->
+    <a class="card-link" href="card4_greek_oregano_chicken_pasta.html" data-category="meat" data-title="quick greek style oregano chicken pasta salad hf-59">
+      <div class="card-body">
+        <div class="card-meta-top">
+          <span class="card-id">HF-59</span>
+          <span class="card-time">⏱ 25 mins</span>
+        </div>
+        <h2 class="card-title">Quick Greek Style Oregano Chicken Pasta Salad</h2>
+        <div class="card-badges">
+          <span class="mini-badge">Cold Lunch</span>
+          <span class="mini-badge">High Protein</span>
+        </div>
+      </div>
+      <div class="card-footer">
+        <span>510 kcal</span>
+        <strong>42g Protein</strong>
+      </div>
+    </a>
+
+    <!-- HF-56 -->
+    <a class="card-link" href="card2_cauliflower_dal.html" data-category="veggie" data-title="north indian roasted cauliflower and lentil dal hf-56">
+      <div class="card-body">
+        <div class="card-meta-top">
+          <span class="card-id">HF-56</span>
+          <span class="card-time">⏱ 35 mins</span>
+        </div>
+        <h2 class="card-title">North Indian Roasted Cauliflower & Lentil Dal</h2>
+        <div class="card-badges">
+          <span class="mini-badge">Freeze Safe</span>
+          <span class="mini-badge">High Fibre</span>
+        </div>
+      </div>
+      <div class="card-footer">
+        <span>410 kcal</span>
+        <strong>18g Protein</strong>
+      </div>
+    </a>
+
+    <!-- HF-52 -->
+    <a class="card-link" href="card_HF-52_beetroot_goats_cheese_couscous.html" data-category="veggie" data-title="beetroot sweet potato and goats cheese couscous bowl hf-52">
+      <div class="card-body">
+        <div class="card-meta-top">
+          <span class="card-id">HF-52</span>
+          <span class="card-time">⏱ 25 mins</span>
+        </div>
+        <h2 class="card-title">Beetroot, Sweet Potato & Goat's Cheese Bowl</h2>
+        <div class="card-badges">
+          <span class="mini-badge">Quick Prep</span>
+          <span class="mini-badge">Source Fibre</span>
+        </div>
+      </div>
+      <div class="card-footer">
+        <span>480 kcal</span>
+        <strong>16g Protein</strong>
+      </div>
+    </a>
+
+    <!-- EP-01 -->
+    <a class="card-link" href="card3_garlic_butter_chicken_quinoa.html" data-category="meat" data-title="garlic butter chicken with quinoa and steamed greens ep-01">
+      <div class="card-body">
+        <div class="card-meta-top">
+          <span class="card-id">EP-01</span>
+          <span class="card-time">⏱ 35 mins</span>
+        </div>
+        <h2 class="card-title">Garlic Butter Chicken with Quinoa & Steamed Greens</h2>
+        <div class="card-badges">
+          <span class="mini-badge">High Protein</span>
+          <span class="mini-badge">Gluten Free</span>
+        </div>
+      </div>
+      <div class="card-footer">
+        <span>540 kcal</span>
+        <strong>47g Protein</strong>
+      </div>
+    </a>
+
+    <!-- EP-02 -->
+    <a class="card-link" href="card4_cheeky_quinoa_mushroom_tofu.html" data-category="veggie" data-title="cheeky quinoa with mushroom and crispy tofu ep-02">
+      <div class="card-body">
+        <div class="card-meta-top">
+          <span class="card-id">EP-02</span>
+          <span class="card-time">⏱ 35 mins</span>
+        </div>
+        <h2 class="card-title">Cheeky Quinoa with Mushroom & Crispy Tofu</h2>
+        <div class="card-badges">
+          <span class="mini-badge">Vegan</span>
+          <span class="mini-badge">Gluten Free</span>
+        </div>
+      </div>
+      <div class="card-footer">
+        <span>460 kcal</span>
+        <strong>21g Protein</strong>
+      </div>
+    </a>
+
+    <!-- CB-01 -->
+    <a class="card-link" href="card_CB-01_black_bean_skillet.html" data-category="pantry" data-title="smoky mexican black bean and salsa skillet cb-01">
+      <div class="card-body">
+        <div class="card-meta-top">
+          <span class="card-id">CB-01</span>
+          <span class="card-time">⏱ 15 mins</span>
+        </div>
+        <h2 class="card-title">Smoky Mexican Black Bean & Salsa Skillet</h2>
+        <div class="card-badges">
+          <span class="mini-badge">Low GI</span>
+          <span class="mini-badge">Budget Batch</span>
+        </div>
+      </div>
+      <div class="card-footer">
+        <span>380 kcal</span>
+        <strong>19g Protein</strong>
+      </div>
+    </a>
+
+  </div>
+</div>
+
+<script>
+  let activeCategory = 'all';
+
+  function filterCategory(cat, element) {
+    activeCategory = cat;
+    document.querySelectorAll('.pill').forEach(el => el.classList.remove('active'));
+    element.classList.add('active');
+    applyFilters();
+  }
+
+  const searchInput = document.getElementById('searchInput');
+  searchInput.addEventListener('input', applyFilters);
+
+  function applyFilters() {
+    const query = searchInput.value.toLowerCase().trim();
+    const cards = document.querySelectorAll('.card-link');
+
+    cards.forEach(card => {
+      const matchCat = (activeCategory === 'all') || (card.dataset.category === activeCategory);
+      const matchSearch = card.dataset.title.includes(query);
+
+      if (matchCat && matchSearch) {
+        card.classList.remove('hidden');
+      } else {
+        card.classList.add('hidden');
+      }
+    });
+  }
+</script>
+
+</body>
+</html>
