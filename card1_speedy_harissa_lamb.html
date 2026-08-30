@@ -34,6 +34,12 @@
   .steps { display: flex; flex-direction: column; gap: 3.5px; font-size: 7.8px; line-height: 1.25; }
   .step-item { display: flex; gap: 5px; }
   .step-num { background: #059669; color: white; font-weight: bold; min-width: 14px; height: 14px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 7.5px; flex-shrink: 0; margin-top: 1px; }
+  
+  /* Hides the return link during A5 printing / PDF export */
+  @media print {
+    .nav-btn { display: none !important; }
+    body { background-color: #ffffff; }
+  }
 </style>
 </head>
 <body>
@@ -106,7 +112,8 @@
     </div>
   </div>
 </div>
-  <div style="position: fixed; bottom: 12px; left: 50%; transform: translateX(-50%); font-size: 11px; font-family: Montserrat, sans-serif;">
+
+<div class="nav-btn" style="position: fixed; bottom: 12px; left: 50%; transform: translateX(-50%); font-size: 11px; font-family: Montserrat, sans-serif;">
   <a href="index.html" style="color: #059669; text-decoration: none; font-weight: 700; background: #ffffff; padding: 4px 10px; border-radius: 20px; border: 1px solid #cbd5e1; box-shadow: 0 2px 5px rgba(0,0,0,0.08);">← Return to Dashboard</a>
 </div>
 </body>
