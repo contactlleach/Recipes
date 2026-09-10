@@ -37,7 +37,6 @@
       margin: 0 auto;
     }
 
-    /* Header */
     header {
       text-align: center;
       margin-bottom: 24px;
@@ -70,7 +69,6 @@
       margin-top: 4px;
     }
 
-    /* Controls Bar */
     .controls {
       display: flex;
       flex-direction: column;
@@ -105,7 +103,6 @@
       box-shadow: 0 0 0 3px rgba(5, 150, 105, 0.15);
     }
 
-    /* View Toggle Buttons */
     .view-toggle {
       display: flex;
       background: var(--surface);
@@ -173,7 +170,6 @@
       color: #ffffff;
     }
 
-    /* Grid View */
     .grid-view {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -257,7 +253,6 @@
       color: #475569;
     }
 
-    /* Kids Action Toggle Button */
     .kids-toggle-btn {
       background: #f8fafc;
       border: 1px solid var(--border);
@@ -297,7 +292,6 @@
       font-weight: 700;
     }
 
-    /* Table View */
     .table-container {
       background: var(--surface);
       border: 1px solid var(--border);
@@ -390,7 +384,7 @@
   <div class="controls">
     <div class="search-row">
       <div class="search-box">
-        <input type="text" id="searchInput" placeholder="Search by name, ingredient, ID, or 'kids' (e.g., BK-01, yogurt, chicken, soup)...">
+        <input type="text" id="searchInput" placeholder="Search by name, ingredient, ID, or 'kids' (e.g., BK-01, lamb, chicken)...">
       </div>
       <div class="view-toggle">
         <button class="toggle-btn active" id="btnGrid" onclick="switchView('grid')">▦ Tiles</button>
@@ -408,10 +402,8 @@
     </div>
   </div>
 
-  <!-- TILED VIEW CONTAINER -->
   <div class="grid-view" id="recipeGrid"></div>
 
-  <!-- TABLE VIEW CONTAINER -->
   <div class="table-container hidden" id="recipeTable">
     <table>
       <thead>
@@ -431,7 +423,6 @@
 </div>
 
 <script>
-  // Master Recipe Data Array
   const baseRecipes = [
     { id: 'BK-01', title: 'Greek Yogurt Power Bowl', category: 'breakfast', catName: 'Breakfast', time: 5, kcal: 370, protein: 25, defaultKids: true, link: 'card_BK-01_greek_yogurt_power_bowl.html', tags: ['No-Cook', 'Glucose OK'], keywords: 'greek yogurt berries chia seeds walnuts power bowl breakfast' },
     { id: 'HF-61', title: 'Chermoula Spiced Chicken, Chorizo & Black Bean Soup', category: 'meat', catName: 'Meat & Poultry', time: 30, kcal: 580, protein: 52, defaultKids: true, link: 'card_HF-61_chermoula_chicken_chorizo_soup.html', tags: ['50g+ Protein', 'Bulk Cook'], keywords: 'chicken chorizo black beans sweet potato chermoula soup' },
@@ -448,7 +439,6 @@
     { id: 'CB-02', title: 'Zesty Italian Lentil & Cannellini Warm Salad', category: 'pantry', catName: 'Pantry & Pulses', time: 12, kcal: 340, protein: 17, defaultKids: false, link: 'card_CB-02_lentil_cannellini_salad.html', tags: ['High Fibre', 'Low GI'], keywords: 'lentils cannellini beans sun-dried tomatoes' }
   ];
 
-  // Load Saved Kids Preferences from LocalStorage
   function loadKidsPreferences() {
     const saved = localStorage.getItem('recipe_kids_liked');
     if (!saved) return {};
@@ -461,13 +451,11 @@
 
   let kidsPrefs = loadKidsPreferences();
 
-  // Combine Base Recipe data with Saved Preferences
   let recipes = baseRecipes.map(r => ({
     ...r,
     kids: (kidsPrefs[r.id] !== undefined) ? kidsPrefs[r.id] : r.defaultKids
   }));
 
-  // Toggle Kids Status Function
   function toggleKidsLiked(recipeId, event) {
     if (event) {
       event.preventDefault();
@@ -489,7 +477,6 @@
   let currentSortCol = null;
   let currentSortAsc = true;
 
-  // View Switching
   function switchView(view) {
     currentView = view;
     document.getElementById('btnGrid').classList.toggle('active', view === 'grid');
@@ -499,7 +486,6 @@
     document.getElementById('recipeTable').classList.toggle('hidden', view !== 'table');
   }
 
-  // Category Filtering
   function filterCategory(cat, element) {
     activeCategory = cat;
     document.querySelectorAll('.pill').forEach(el => el.classList.remove('active'));
@@ -507,7 +493,6 @@
     applyFilters();
   }
 
-  // Search Input Listener
   const searchInput = document.getElementById('searchInput');
   searchInput.addEventListener('input', applyFilters);
 
@@ -523,7 +508,6 @@
     return matchCat && matchSearch;
   }
 
-  // Render Grid View
   function renderGrid() {
     const grid = document.getElementById('recipeGrid');
     const query = searchInput.value.toLowerCase().trim();
@@ -562,7 +546,6 @@
     });
   }
 
-  // Render Table View
   function renderTable() {
     const tbody = document.getElementById('tableBody');
     const query = searchInput.value.toLowerCase().trim();
@@ -595,7 +578,6 @@
     renderTable();
   }
 
-  // Table Column Sorting
   function sortTable(colIndex, type) {
     const ths = document.querySelectorAll('th');
     
@@ -634,7 +616,6 @@
     applyFilters();
   }
 
-  // Initial App Render
   renderGrid();
   renderTable();
 </script>
