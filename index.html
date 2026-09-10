@@ -384,13 +384,13 @@
   <header>
     <span class="brand-tag">Digital Recipe Hub</span>
     <h1>My Recipe Collection</h1>
-    <p class="subtitle">Print-ready A5 HelloFresh-style cards with portion scaling & macros[cite: 1, 6]</p>
+    <p class="subtitle">Print-ready A5 HelloFresh-style cards with portion scaling & macros</p>
   </header>
 
   <div class="controls">
     <div class="search-row">
       <div class="search-box">
-        <input type="text" id="searchInput" placeholder="Search by name, ingredient, ID, or 'kids' (e.g., lamb, soup, traybake, HF-61)...">
+        <input type="text" id="searchInput" placeholder="Search by name, ingredient, ID, or 'kids' (e.g., BK-01, yogurt, chicken, soup)...">
       </div>
       <div class="view-toggle">
         <button class="toggle-btn active" id="btnGrid" onclick="switchView('grid')">▦ Tiles</button>
@@ -431,9 +431,9 @@
 </div>
 
 <script>
-  // Master Recipe Data Array (All 13 Recipes)
+  // Master Recipe Data Array
   const baseRecipes = [
-    { id: 'BK-01', title: 'Whipped Berry & Nut Butter Protein Bowl', category: 'breakfast', catName: 'Breakfast', time: 5, kcal: 370, protein: 32, defaultKids: true, link: 'card_BK-01_whipped_berry_bowl.html', tags: ['No-Cook', 'Glucose Friendly'], keywords: 'yoghurt chia breakfast berries no-cook' },
+    { id: 'BK-01', title: 'Greek Yogurt Power Bowl', category: 'breakfast', catName: 'Breakfast', time: 5, kcal: 370, protein: 25, defaultKids: true, link: 'card_BK-01_greek_yogurt_power_bowl.html', tags: ['No-Cook', 'Glucose OK'], keywords: 'greek yogurt berries chia seeds walnuts power bowl breakfast' },
     { id: 'HF-61', title: 'Chermoula Spiced Chicken, Chorizo & Black Bean Soup', category: 'meat', catName: 'Meat & Poultry', time: 30, kcal: 580, protein: 52, defaultKids: true, link: 'card_HF-61_chermoula_chicken_chorizo_soup.html', tags: ['50g+ Protein', 'Bulk Cook'], keywords: 'chicken chorizo black beans sweet potato chermoula soup' },
     { id: 'HF-60', title: 'Speedy Middle Eastern Harissa Lamb with Bulgur', category: 'meat', catName: 'Meat & Poultry', time: 25, kcal: 565, protein: 38, defaultKids: false, link: 'card1_speedy_harissa_lamb.html', tags: ['Bulk Cook', 'High Protein'], keywords: 'lamb mince bulgur wheat peppers' },
     { id: 'HF-59', title: 'Quick Greek Style Oregano Chicken Pasta Salad', category: 'meat', catName: 'Meat & Poultry', time: 25, kcal: 510, protein: 42, defaultKids: true, link: 'card4_greek_oregano_chicken_pasta.html', tags: ['Cold Lunch', 'High Protein'], keywords: 'chicken pasta ditali cucumber' },
@@ -480,7 +480,6 @@
     kidsPrefs[recipeId] = recipe.kids;
     saveKidsPreferences(kidsPrefs);
 
-    // Re-render views with current filters
     renderGrid();
     renderTable();
   }
