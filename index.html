@@ -37,6 +37,7 @@
       margin: 0 auto;
     }
 
+    /* Header */
     header {
       text-align: center;
       margin-bottom: 24px;
@@ -69,6 +70,7 @@
       margin-top: 4px;
     }
 
+    /* Controls Bar */
     .controls {
       display: flex;
       flex-direction: column;
@@ -103,6 +105,7 @@
       box-shadow: 0 0 0 3px rgba(5, 150, 105, 0.15);
     }
 
+    /* View Toggle Buttons */
     .view-toggle {
       display: flex;
       background: var(--surface);
@@ -170,6 +173,7 @@
       color: #ffffff;
     }
 
+    /* Grid View */
     .grid-view {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -253,6 +257,7 @@
       color: #475569;
     }
 
+    /* Kids Action Toggle Button */
     .kids-toggle-btn {
       background: #f8fafc;
       border: 1px solid var(--border);
@@ -292,12 +297,13 @@
       font-weight: 700;
     }
 
+    /* Table View */
     .table-container {
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: var(--radius);
       overflow-x: auto;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
     }
 
     table {
@@ -378,13 +384,13 @@
   <header>
     <span class="brand-tag">Digital Recipe Hub</span>
     <h1>My Recipe Collection</h1>
-    <p class="subtitle">Print-ready A5 HelloFresh-style cards with portion scaling & macros</p>
+    <p class="subtitle">Print-ready A5 HelloFresh-style cards with portion scaling & macros[cite: 1, 6]</p>
   </header>
 
   <div class="controls">
     <div class="search-row">
       <div class="search-box">
-        <input type="text" id="searchInput" placeholder="Search by name, ingredient, ID, or 'kids' (e.g., tuna, lamb, BK-01)...">
+        <input type="text" id="searchInput" placeholder="Search by name, ingredient, ID, or 'kids' (e.g., lamb, soup, traybake, HF-61)...">
       </div>
       <div class="view-toggle">
         <button class="toggle-btn active" id="btnGrid" onclick="switchView('grid')">▦ Tiles</button>
@@ -402,8 +408,10 @@
     </div>
   </div>
 
+  <!-- TILED VIEW CONTAINER -->
   <div class="grid-view" id="recipeGrid"></div>
 
+  <!-- TABLE VIEW CONTAINER -->
   <div class="table-container hidden" id="recipeTable">
     <table>
       <thead>
@@ -423,19 +431,24 @@
 </div>
 
 <script>
+  // Master Recipe Data Array (All 13 Recipes)
   const baseRecipes = [
     { id: 'BK-01', title: 'Whipped Berry & Nut Butter Protein Bowl', category: 'breakfast', catName: 'Breakfast', time: 5, kcal: 370, protein: 32, defaultKids: true, link: 'card_BK-01_whipped_berry_bowl.html', tags: ['No-Cook', 'Glucose Friendly'], keywords: 'yoghurt chia breakfast berries no-cook' },
+    { id: 'HF-61', title: 'Chermoula Spiced Chicken, Chorizo & Black Bean Soup', category: 'meat', catName: 'Meat & Poultry', time: 30, kcal: 580, protein: 52, defaultKids: true, link: 'card_HF-61_chermoula_chicken_chorizo_soup.html', tags: ['50g+ Protein', 'Bulk Cook'], keywords: 'chicken chorizo black beans sweet potato chermoula soup' },
     { id: 'HF-60', title: 'Speedy Middle Eastern Harissa Lamb with Bulgur', category: 'meat', catName: 'Meat & Poultry', time: 25, kcal: 565, protein: 38, defaultKids: false, link: 'card1_speedy_harissa_lamb.html', tags: ['Bulk Cook', 'High Protein'], keywords: 'lamb mince bulgur wheat peppers' },
     { id: 'HF-59', title: 'Quick Greek Style Oregano Chicken Pasta Salad', category: 'meat', catName: 'Meat & Poultry', time: 25, kcal: 510, protein: 42, defaultKids: true, link: 'card4_greek_oregano_chicken_pasta.html', tags: ['Cold Lunch', 'High Protein'], keywords: 'chicken pasta ditali cucumber' },
     { id: 'HF-56', title: 'North Indian Roasted Cauliflower & Lentil Dal', category: 'veggie', catName: 'Vegetarian & Vegan', time: 35, kcal: 410, protein: 18, defaultKids: false, link: 'card2_cauliflower_dal.html', tags: ['Freeze Safe', 'High Fibre'], keywords: 'cauliflower lentil dal coconut' },
     { id: 'HF-52', title: "Beetroot, Sweet Potato & Goat's Cheese Bowl", category: 'veggie', catName: 'Vegetarian & Vegan', time: 25, kcal: 480, protein: 16, defaultKids: false, link: 'card_HF-52_beetroot_goats_cheese_couscous.html', tags: ['Quick Prep', 'Source Fibre'], keywords: 'couscous beetroot sweet potato goats cheese' },
+    { id: 'HF-38', title: 'Speedy Brazilian Style Beef & Black Bean Soup', category: 'meat', catName: 'Meat & Poultry', time: 15, kcal: 510, protein: 37, defaultKids: true, link: 'card_HF-38_brazilian_beef_black_bean_soup.html', tags: ['Low Carb Base', 'Bulk Cook'], keywords: 'beef mince black beans ciabatta feijoada soup' },
+    { id: 'HF-31', title: 'Super Quick Chorizo & Bean Stew with Toasts', category: 'meat', catName: 'Meat & Poultry', time: 15, kcal: 485, protein: 22, defaultKids: true, link: 'card_HF-31_chorizo_bean_stew.html', tags: ['Calorie Smart', 'Bulk Cook'], keywords: 'chorizo mixed beans passata soffritto ciabatta stew' },
+    { id: 'HF-20', title: 'Crispy Butter Bean, Pitta Chip & Pear Traybake', category: 'veggie', catName: 'Vegetarian & Vegan', time: 32, kcal: 490, protein: 15, defaultKids: false, link: 'card_HF-20_butter_bean_pitta_pear_traybake.html', tags: ['High Fibre', 'Sheet Pan'], keywords: 'butter beans pear pitta chips amarillo traybake' },
     { id: 'EP-01', title: 'Garlic Butter Chicken with Quinoa & Greens', category: 'meat', catName: 'Meat & Poultry', time: 35, kcal: 540, protein: 47, defaultKids: true, link: 'card3_garlic_butter_chicken_quinoa.html', tags: ['High Protein', 'Gluten Free'], keywords: 'chicken quinoa broccoli kale garlic butter' },
     { id: 'EP-02', title: 'Cheeky Quinoa with Mushroom & Crispy Tofu', category: 'veggie', catName: 'Vegetarian & Vegan', time: 35, kcal: 460, protein: 21, defaultKids: false, link: 'card4_cheeky_quinoa_mushroom_tofu.html', tags: ['Vegan', 'Gluten Free'], keywords: 'tofu quinoa mushrooms vegan gluten-free' },
     { id: 'CB-01', title: 'Smoky Mexican Black Bean & Salsa Skillet', category: 'pantry', catName: 'Pantry & Pulses', time: 15, kcal: 380, protein: 19, defaultKids: true, link: 'card_CB-01_black_bean_skillet.html', tags: ['Low GI', 'Budget Batch'], keywords: 'black beans sweetcorn salsa greek yogurt skillet' },
-    { id: 'CB-02', title: 'Zesty Italian Lentil & Cannellini Warm Salad', category: 'pantry', catName: 'Pantry & Pulses', time: 12, kcal: 340, protein: 17, defaultKids: false, link: 'card_CB-02_lentil_cannellini_salad.html', tags: ['High Fibre', 'Low GI'], keywords: 'lentils cannellini beans sun-dried tomatoes' },
-    { id: 'CB-03', title: 'Tuscan Sun-Dried Tomato & Herb Tuna Skillet', category: 'pantry', catName: 'Pantry & Pulses', time: 10, kcal: 410, protein: 34, defaultKids: false, link: 'card_CB-03_tuscan_tuna_skillet.html', tags: ['High Protein', 'Glucose Friendly'], keywords: 'tuna cannellini beans peppers pesto quick lunch pantry' }
+    { id: 'CB-02', title: 'Zesty Italian Lentil & Cannellini Warm Salad', category: 'pantry', catName: 'Pantry & Pulses', time: 12, kcal: 340, protein: 17, defaultKids: false, link: 'card_CB-02_lentil_cannellini_salad.html', tags: ['High Fibre', 'Low GI'], keywords: 'lentils cannellini beans sun-dried tomatoes' }
   ];
 
+  // Load Saved Kids Preferences from LocalStorage
   function loadKidsPreferences() {
     const saved = localStorage.getItem('recipe_kids_liked');
     if (!saved) return {};
@@ -448,11 +461,13 @@
 
   let kidsPrefs = loadKidsPreferences();
 
+  // Combine Base Recipe data with Saved Preferences
   let recipes = baseRecipes.map(r => ({
     ...r,
     kids: (kidsPrefs[r.id] !== undefined) ? kidsPrefs[r.id] : r.defaultKids
   }));
 
+  // Toggle Kids Status Function
   function toggleKidsLiked(recipeId, event) {
     if (event) {
       event.preventDefault();
@@ -465,6 +480,7 @@
     kidsPrefs[recipeId] = recipe.kids;
     saveKidsPreferences(kidsPrefs);
 
+    // Re-render views with current filters
     renderGrid();
     renderTable();
   }
@@ -474,6 +490,7 @@
   let currentSortCol = null;
   let currentSortAsc = true;
 
+  // View Switching
   function switchView(view) {
     currentView = view;
     document.getElementById('btnGrid').classList.toggle('active', view === 'grid');
@@ -483,6 +500,7 @@
     document.getElementById('recipeTable').classList.toggle('hidden', view !== 'table');
   }
 
+  // Category Filtering
   function filterCategory(cat, element) {
     activeCategory = cat;
     document.querySelectorAll('.pill').forEach(el => el.classList.remove('active'));
@@ -490,6 +508,7 @@
     applyFilters();
   }
 
+  // Search Input Listener
   const searchInput = document.getElementById('searchInput');
   searchInput.addEventListener('input', applyFilters);
 
@@ -505,6 +524,7 @@
     return matchCat && matchSearch;
   }
 
+  // Render Grid View
   function renderGrid() {
     const grid = document.getElementById('recipeGrid');
     const query = searchInput.value.toLowerCase().trim();
@@ -543,6 +563,7 @@
     });
   }
 
+  // Render Table View
   function renderTable() {
     const tbody = document.getElementById('tableBody');
     const query = searchInput.value.toLowerCase().trim();
@@ -575,6 +596,7 @@
     renderTable();
   }
 
+  // Table Column Sorting
   function sortTable(colIndex, type) {
     const ths = document.querySelectorAll('th');
     
@@ -613,6 +635,7 @@
     applyFilters();
   }
 
+  // Initial App Render
   renderGrid();
   renderTable();
 </script>
